@@ -15,9 +15,6 @@ namespace MyFood.Infrastructure.Repositories
 
         public DbSet<UserEntity> Users { get; set; } = null!;
 
-        public DbSet<RecipeEntity> Recipes { get; set; } = null;
-
-        public DbSet<LikeEntity> Likes { get; set; } = null;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

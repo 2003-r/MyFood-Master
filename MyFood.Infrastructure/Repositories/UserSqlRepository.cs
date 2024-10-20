@@ -19,10 +19,6 @@ namespace MyFood.Infrastructure.Repositories
             _passwordHasher = passwordHasher;
         }
 
-        public public RecipeEntity GetSingle(int id)
-        {
-            return _foodDbContext.Recipes.FirstOrDefault(x => x.RecipeId == id);
-        }
         public void Add(UserEntity user)
         {
             _FoodDbContext.Users.Add(user);
