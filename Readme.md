@@ -1,77 +1,29 @@
 # ASP.NET Core WebApi Sample with HATEOAS, Versioning & Swagger
 
-In this repository I want to give a plain starting point at how to build a WebAPI with ASP.NET Core.
+This project is an extension of an ASP.NET Web API initially developed to manage food items by our Professor, allowing users to GET, POST, PUT, PATCH, and DELETE food items. As part of an assignment for the Developing Interactive Web Applications course, additional authentication features were implemented, including user registration and login functionality secured by JWT (JSON Web Token) authentication.
+  
+  Key Features:
+  
+  Food Item Management:
+    
+    The Web API provides endpoints for managing food items, allowing clients to retrieve, create, update, partially update, and delete food item records.
+    Authentication & User Management:
+    
+    A new controller was added to handle user registration and login functionalities.
+    Password Hashing:
+    User passwords are hashed before storage to ensure sensitive information is kept secure.
+  
+  JWT-Based Authentication:
+    Upon successful login, the API generates a JWT token that is sent to the client. This token is stored on the client side and must be included in requests to access protected endpoints.
+  
+  Login Endpoint:
+  
+    Returns 401 Unauthorized if the username and password are invalid.
+    Returns 404 Not Found if the username does not exist.
+    Returns 200 OK along with the generated JWT token if the login is successful.
+  Register Endpoint:
+  
+    Returns 201 Created when a new user is successfully registered.
+    Returns 500 Internal Server Error if there is an issue creating the user.
+  This project demonstrates my ability to integrate authentication mechanisms into an existing API, using ASP.NET Core, JWT, and best practices for security like password hashing and status code handling for various outcomes.
 
-This repository contains a controller which is dealing with FoodItems. You can GET/POST/PUT/PATCH and DELETE them.
-
-Hope this helps.
-
-See the examples here: 
-
-## Versions
-
-``` http://localhost:29435/swagger ```
-
-![ASPNETCOREWebAPIVersions](./.github/versions.jpg)
-
-## GET all Foods
-
-``` http://localhost:29435/api/v1/foods ```
-
-![ASPNETCOREWebAPIGET](./.github/get.jpg)
-
-## GET single food
-
-``` http://localhost:29435/api/v1/foods/2 ```
-
-![ASPNETCOREWebAPIGET](./.github/getSingle.jpg)
-
-## POST a foodItem
-
-``` http://localhost:29435/api/v1/foods ```
-
-```javascript
-  {
-      "name": "Lasagne",
-      "type": "Main",
-      "calories": 3000,
-      "created": "2017-09-16T17:50:08.1510899+02:00"
-  }
-```
-
-![ASPNETCOREWebAPIGET](./.github/post.jpg)
-
-## PUT a foodItem
-
-``` http://localhost:29435/api/v1/foods/5 ```
-
-``` javascript
-{
-    "name": "Lasagne2",
-    "type": "Main",
-    "calories": 3000,
-    "created": "2017-09-16T17:50:08.1510899+02:00"
-}
-```
-
-![ASPNETCOREWebAPIGET](./.github/put.jpg)
-
-
-## PATCH a foodItem
-
-``` http://localhost:29435/api/v1/foods/5 ```
-
-``` javascript
-[
-  { "op": "replace", "path": "/name", "value": "mynewname" }
-]
-```
-
-![ASPNETCOREWebAPIGET](./.github/patch.jpg)
-
-## DELETE a foodItem
-
-``` http://localhost:29435/api/v1/foods/5 ```
-
-
-![ASPNETCOREWebAPIGET](./.github/delete.jpg)
